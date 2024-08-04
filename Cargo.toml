@@ -1,0 +1,8 @@
+[package]
+name = "linktype"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "A publicly managed enum for different link types present in PCAP files."
+
+[dependencies]
