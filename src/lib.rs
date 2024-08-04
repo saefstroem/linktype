@@ -1,10 +1,30 @@
 /**
-### This enum is used to represent the type of link layer in the pcap file.
+### This enum is used to represent the type of link layer found in a pcap file.
 Each variant represents a different type of link layer, with a corresponding integer value that is present in the last 4 bytes of a pcap file.
+
+If you find a mistake or want to add a new variant, please open an issue or a pull request.
 
 Reference: https://www.tcpdump.org/linktypes.html
 
+#### Example
+```rust
+use linktype::LinkType;
+
+fn main() {
+    let link_type = LinkType::Ethernet;
+    println!("Link type: {:?}", link_type);
+
+    match link_type {
+        LinkType::Ethernet => {
+            // Adjust code execution according to the link type
+        },
+        _ => println!("Unknown link type"),
+    }
+}
+```
+
  */
+#[derive(Debug)]
 pub enum LinkType {
     Null = 0,
     Ethernet = 1,
