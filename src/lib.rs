@@ -23,14 +23,14 @@ match link_type {
 }
 
 let some_link_value=1;
-let link_type=LinkType::from_u16(some_link_value);
+let link_type=LinkType::from_u32(some_link_value);
 println!("Link type: {:?}", link_type);
 
 ```
 
  */
 #[derive(Debug, FromPrimitive)]
-#[repr(u16)]
+#[repr(u32)]
 pub enum LinkType {
     Null = 0,
     Ethernet = 1,
@@ -219,11 +219,11 @@ pub enum LinkType {
     Mdbus = 300,
     DectNR = 301,
     #[num_enum(default)]
-    Unknown = u16::MAX,
+    Unknown = u32::MAX,
 }
 
 impl LinkType {
-    pub fn from_u16(number: u16) -> LinkType {
+    pub fn from_u32(number: u32) -> LinkType {
         Self::from_primitive(number)
     }
 }
