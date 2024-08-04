@@ -1,6 +1,6 @@
 [package]
 name = "linktype"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 description = "A simply and publicly managed enum for different link types present in PCAP files."
@@ -9,3 +9,4 @@ keywords = ["network", "pcap", "linktype"]
 categories = ["network-programming"]
 
 [dependencies]
+num_enum = "0.7.3"

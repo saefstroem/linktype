@@ -1,3 +1,5 @@
+use num_enum::FromPrimitive;
+
 /**
 ### This enum is used to represent the type of link layer found in a pcap file.
 Each variant represents a different type of link layer, with a corresponding integer value that is present in the last 4 bytes of a pcap file.
@@ -20,11 +22,16 @@ fn main() {
         },
         _ => println!("Unknown link type"),
     }
+
+    let some_link_value=1;
+    let link_type=LinkType::from_u16(some_link_value);
+    println!("Link type: {:?}", link_type);
 }
 ```
 
  */
-#[derive(Debug)]
+#[derive(Debug,FromPrimitive)]
+#[repr(u16)]
 pub enum LinkType {
     Null = 0,
     Ethernet = 1,
@@ -212,4 +219,12 @@ pub enum LinkType {
     FiraUCI = 299,
     Mdbus = 300,
     DectNR = 301,
+    #[num_enum(default)]
+    Unknown=u16::MAX
+}
+
+impl LinkType {
+    pub fn from_u16(number: u16) -> LinkType {
+        Self::from_primitive(number)
+    }
 }

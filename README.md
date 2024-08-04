@@ -33,6 +33,10 @@ fn main() {
         },
         _ => println!("Unknown link type"),
     }
+
+    let some_link_value=1;
+    let link_type=LinkType::from_u16(some_link_value);
+    println!("Link type: {:?}", link_type);
 }
 ```
 
