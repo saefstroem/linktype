@@ -12,25 +12,24 @@ Reference: https://www.tcpdump.org/linktypes.html
 ```rust
 use linktype::LinkType;
 
-fn main() {
-    let link_type = LinkType::Ethernet;
-    println!("Link type: {:?}", link_type);
+let link_type = LinkType::Ethernet;
+println!("Link type: {:?}", link_type);
 
-    match link_type {
-        LinkType::Ethernet => {
-            // Adjust code execution according to the link type
-        },
-        _ => println!("Unknown link type"),
-    }
-
-    let some_link_value=1;
-    let link_type=LinkType::from_u16(some_link_value);
-    println!("Link type: {:?}", link_type);
+match link_type {
+    LinkType::Ethernet => {
+        // Adjust code execution according to the link type
+    },
+    _ => println!("Unknown link type"),
 }
+
+let some_link_value=1;
+let link_type=LinkType::from_u16(some_link_value);
+println!("Link type: {:?}", link_type);
+
 ```
 
  */
-#[derive(Debug,FromPrimitive)]
+#[derive(Debug, FromPrimitive)]
 #[repr(u16)]
 pub enum LinkType {
     Null = 0,
@@ -220,7 +219,7 @@ pub enum LinkType {
     Mdbus = 300,
     DectNR = 301,
     #[num_enum(default)]
-    Unknown=u16::MAX
+    Unknown = u16::MAX,
 }
 
 impl LinkType {
