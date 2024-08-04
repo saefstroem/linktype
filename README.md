@@ -1,5 +1,7 @@
 # `linktype` - All PCAP Link Types for your rust needs
 
+### [crates.io](https://crates.io/crates/linktype)
+
 ## Introduction
 
 This crate/repository provides a list of all known PCAP link types as per the [tcpdump linktype list](https://www.tcpdump.org/linktypes.html).
